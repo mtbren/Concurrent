@@ -1,50 +1,50 @@
 package com.internal.concurrent;
 
-class Runner1 implements Runnable{
+class TRunner1 extends Thread{
     @Override
-    public void run() {
+    public void run(){
         for(int i=1;i<=10;i++){
             System.out.println("Runner1 - "+i);
-            /*try {
+            try {
                 Thread.sleep(3);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
-            }*/
+            }
         }
     }
 }
 
-class Runner2 implements Runnable{
+class TRunner2 extends Thread{
     @Override
-    public void run() {
+    public void run(){
         for(int i=1;i<=10;i++){
             System.out.println("Runner2 - "+i);
-            /*try {
+            try {
                 Thread.sleep(3);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
-            }*/
+            }
         }
     }
 }
-
-public class MainRunner {
+public class MainRunnerUsingThread {
     public static void main(String[] args) {
-        Thread thread1 = new Thread(new Runner1());
-        Thread thread2 = new Thread(new Runner2());
-        Thread thread3 = new Thread(new Runnable() {
+        Thread thread1 = new TRunner1();
+        Thread thread2 = new TRunner2();
+
+        Thread thread3 = new Thread(){
             @Override
-            public void run() {
+            public void run(){
                 for(int i=1;i<=10;i++){
                     System.out.println("Runner3 - "+i);
-                    /*try {
+                    try {
                         Thread.sleep(3);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
-                    }*/
+                    }
                 }
             }
-        });
+        };
 
         thread1.start();
         thread2.start();

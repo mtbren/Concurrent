@@ -36,7 +36,7 @@ public class MainRunnerUsingRunnable {
             @Override
             public void run() {
                 for(int i=1;i<=10;i++){
-                    System.out.println("Runner3 - "+i);
+                    System.out.println("Runner3 - " + i);
                     try {
                         Thread.sleep(3);
                     } catch (InterruptedException e) {

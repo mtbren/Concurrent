@@ -49,5 +49,18 @@ public class MainRunnerUsingThread {
         thread1.start();
         thread2.start();
         thread3.start();
+
+        System.out.println("Thread execution in progress !!!");
+
+        try {
+            // Wait for the threads to die (finish execution)
+            thread1.join();
+            thread2.join();
+            thread3.join();
+        }catch(InterruptedException ie){
+            throw new RuntimeException(ie);
+        }
+        System.out.println("Finished execution of all threads !!!");
+
     }
 }

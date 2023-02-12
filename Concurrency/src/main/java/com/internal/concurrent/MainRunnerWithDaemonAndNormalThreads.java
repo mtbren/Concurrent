@@ -15,7 +15,7 @@ class NRunner1 extends Thread{
 class DRunner2 implements Runnable{
     @Override
     public void run() {
-        // Even though this is an infinite while loop, it ends (terminated by JVM) when other threads are done execution.
+        // Even though this is an infinite while loop, it ends (terminated by JVM) when other worker threads are done execution.
         // This is because this thread is marked as Daemon thread
         while(true){
             System.out.println("DRunner2 working ....");

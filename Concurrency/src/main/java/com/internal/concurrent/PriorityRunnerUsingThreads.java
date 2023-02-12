@@ -1,6 +1,6 @@
 package com.internal.concurrent;
 
-class LowPriorityRunner extends Thread{
+class LowPriorityRunner implements Runnable{
     @Override
     public void run(){
         for(int i=1;i<=10;i++){
@@ -9,7 +9,7 @@ class LowPriorityRunner extends Thread{
     }
 }
 
-class HighPriorityRunner extends Thread{
+class HighPriorityRunner implements Runnable{
     @Override
     public void run(){
         for(int i=1;i<=10;i++){
@@ -19,8 +19,8 @@ class HighPriorityRunner extends Thread{
 }
 public class PriorityRunnerUsingThreads {
     public static void main(String[] args) {
-        Thread lpThread = new LowPriorityRunner();
-        Thread hpThread = new HighPriorityRunner();
+        Thread lpThread = new Thread(new LowPriorityRunner());
+        Thread hpThread = new Thread(new HighPriorityRunner());
 
         lpThread.setPriority(Thread.MIN_PRIORITY);  // 1
         hpThread.setPriority(Thread.MAX_PRIORITY);  // 10

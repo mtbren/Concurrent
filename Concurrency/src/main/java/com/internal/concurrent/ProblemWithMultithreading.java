@@ -33,6 +33,10 @@ public class ProblemWithMultithreading {
         }
     }
 
+    // With synchronized methods, the thread acquires an intrinsic lock on the object/class
+    // A thread owns the intrinsic lock between the time it acquires the lock and the time it releases the lock
+    // As long as a thread owns an intrinsic lock, no other thread can acquire the same lock
+    // The other thread will block when it tries to acquire the lock
     private static synchronized void increment(){
         counter++;
     }
